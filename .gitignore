@@ -1,3 +1,9 @@
+# Emacs tmp files
+*~
+
+# Executables
+list_test
+
 # Prerequisites
 *.d
 
