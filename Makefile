@@ -12,7 +12,7 @@
 
 # Set up to use googletest
 GTEST_ROOT = ../googletest/googletest
-GTEST_MAIN = $(GTEST_ROOT)/make/gtest_main.a
+GTEST_MAIN = $(GTEST_ROOT)/make/libgtest_main.a
 CPPFLAGS = -I $(GTEST_ROOT)/include
 
 # Use C++ 2011.  Compile for debugging (-g) with warnings.
@@ -24,9 +24,12 @@ CXXFLAGS = -std=c++11 -g -Wall -Wextra
 # The command uses some special variables:
 #   $@  -- the name of the target
 #   $^  -- the names of all dependencies (the .o files listed after ":")
+# 
+# Googletest needs to be linked with -pthread, so include it on the
+# command line.
 
 list_test:	list_test.o list.o $(GTEST_MAIN)
-	g++ -o $@ $^
+	g++ -pthread -o $@ $^
 
 # These rules just give additional dependencies.
 # They don't have a command, because there are default commands to
