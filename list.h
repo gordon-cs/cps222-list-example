@@ -6,8 +6,8 @@ class List {
  public:
   List();                 // Create an empty list
   // Be careful of big 3!  Don't allow a default for just some of them.
-  List(List &);           // No copy constructor
-  void operator=(List &); // No assignment operator
+  List(List &) = delete;             // No copy constructor
+  void operator=(List &) = delete;   // No assignment operator
   ~List();                // Delete list, including its contents
   bool empty();           // Returns true iff list is empty
                           // "iff" means "if and only if"
