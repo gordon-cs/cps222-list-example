@@ -36,3 +36,12 @@ list_test
 *.exe
 *.out
 *.app
+
+# Bazel
+bazel-*
+
+# Emacs temp files
+*~
+
+# Mac files
+.DS_Store
