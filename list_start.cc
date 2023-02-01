@@ -23,12 +23,12 @@ void *List::next(void *ptr) {
   if (ptr == nullptr) {
     return nullptr;
   } else {
-    return (void *) (((Node *)ptr)->_next);
+    return (void *) (((Node *)ptr)->next_);
   }
 }
 
 int List::value(void *ptr) {
-  return ((Node *)ptr)->_value;
+  return ((Node *)ptr)->value_;
 }
 
 void List::insert_after(int value, void *ptr) {
@@ -42,14 +42,14 @@ void List::delete_after(void *ptr) {
 void List::push_front(int value) {
   Node *tmpPtr = first_;
   first_ = new Node();
-  first_->_value = value;
-  first_->_next = tmpPtr;
+  first_->value_ = value;
+  first_->next_ = tmpPtr;
 }
 
 int List::pop_front() {
-  int retval = first_->_value;
+  int retval = first_->value_;
   Node *tmpPtr = first_;
-  first_ = first_->_next;
+  first_ = first_->next_;
   delete tmpPtr;
   return retval;
 }
