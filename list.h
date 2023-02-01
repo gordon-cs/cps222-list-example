@@ -1,7 +1,6 @@
 /* Simple singly-linked list example: a forward-only list of integer values.
  * (Use std::forward_list for real code.)
  */
-
 class List {
  public:
   List();                 // Create an empty list
@@ -9,13 +8,12 @@ class List {
   List(List &) = delete;             // No copy constructor
   void operator=(List &) = delete;   // No assignment operator
   ~List();                // Delete list, including its contents
+
   bool empty();           // Returns true iff list is empty
                           // "iff" means "if and only if"
-
-  void * first();         // Return pointer to first node in list
-  void * next(void *ptr); // Return pointer to node after ptr, or nullptr
+  void* first();          // Return pointer to first node in list
+  void* next(void *ptr);  // Return pointer to node after ptr, or nullptr
                           // if there is no such node.
-
   int value(void *ptr);   // Return value of node at ptr.
                           // Crash if ptr is null.
 
@@ -33,9 +31,9 @@ class List {
   // List is a list of Nodes, each of which holds a single int value.
   // A struct is like a class without methods or protection (scope).
   struct Node {
-    Node *_next;
-    int _value;
+    Node *next_;
+    int value_;
   };
 
-  Node *_first;
+  Node *first_;
 };
